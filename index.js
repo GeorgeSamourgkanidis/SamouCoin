@@ -14,7 +14,10 @@ const REDIS_URL = isDevelopment ?
   'redis://127.0.0.1:6379' :
   'redis://:peb9763b7de83ce2926d89aadd501a9566123d2ee4ddb259abc9fa685e7647327@ec2-54-82-13-39.compute-1.amazonaws.com:14539'
 const DEFAULT_PORT = 3000;
-const ROOT_NODE_ADDRESS = `http://localhost:${DEFAULT_PORT}`;
+const ROOT_NODE_ADDRESS = isDevelopment ?
+  `http://localhost:${DEFAULT_PORT}` :
+  'https://samoucoin.herokuapp.com'
+  ;
 
 const app = express();
 const blockchain = new Blockchain();
